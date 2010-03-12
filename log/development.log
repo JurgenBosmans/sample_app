@@ -35,3 +35,25 @@ Processing Rails::InfoController#properties (for 192.168.0.103 at 2010-03-05 10:
 [0m
   [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
 Completed in 45ms (View: 36, DB: 0) | 200 OK [http://192.168.0.102/rails/info/properties]
+
+
+Processing Rails::InfoController#properties (for 192.168.0.103 at 2010-03-05 14:29:49) [GET]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Completed in 74ms (View: 10, DB: 1) | 200 OK [http://192.168.0.102/rails/info/properties]
+
+
+Processing ApplicationController#index (for 192.168.0.103 at 2010-03-12 11:43:23) [GET]
+
+ActionController::RoutingError (No route matches "/controller/action" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 11:44:00) [GET]
+Rendering pages/home
+Completed in 40ms (View: 39, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
