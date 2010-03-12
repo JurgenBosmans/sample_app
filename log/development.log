@@ -57,3 +57,75 @@ Rendering rescues/layout (not_found)
 Processing PagesController#home (for 192.168.0.103 at 2010-03-12 11:44:00) [GET]
 Rendering pages/home
 Completed in 40ms (View: 39, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (5.8ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (4.3ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('0')[0m
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 14:34:58) [GET]
+Rendering pages/home
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
+
+
+Processing PagesController#contact (for 192.168.0.103 at 2010-03-12 14:35:10) [GET]
+Rendering pages/contact
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://192.168.0.102/pages/contact]
+
+
+Processing PagesController#about (for 192.168.0.103 at 2010-03-12 14:35:17) [GET]
+Rendering pages/about
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://192.168.0.102/pages/about]
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 14:43:49) [GET]
+Rendering pages/home
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 14:44:29) [GET]
+Rendering pages/home
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 14:44:34) [GET]
+Rendering pages/home
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 14:44:44) [GET]
+Rendering pages/home
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
+
+
+Processing PagesController#home (for 192.168.0.103 at 2010-03-12 14:46:13) [GET]
+Rendering pages/home
+Completed in 2ms (View: 0, DB: 0) | 200 OK [http://192.168.0.102/pages/home]
