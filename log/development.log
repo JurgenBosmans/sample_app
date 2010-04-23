@@ -1979,3 +1979,35 @@ Rendered layouts/_stylesheets (0.4ms)
 Rendered layouts/_header (0.8ms)
 Rendered layouts/_footer (0.3ms)
 Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing ActionController::Base#home (for 127.0.0.1 at 2010-04-23 14:20:19) [GET]
+
+NameError (uninitialized constant ApplicationController::SessionHelper):
+  app/controllers/application_controller.rb:6
+  app/controllers/pages_controller.rb:1
+
+Rendered rescues/_trace (71.9ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing ActionController::Base#home (for 127.0.0.1 at 2010-04-23 14:24:12) [GET]
+
+NameError (uninitialized constant ApplicationController::SessionHelper):
+  app/controllers/application_controller.rb:6
+  app/controllers/pages_controller.rb:1
+
+Rendered rescues/_trace (30.7ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:25:46) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.8ms)
+Rendered layouts/_header (1.2ms)
+Rendered layouts/_footer (0.7ms)
+Completed in 45ms (View: 44, DB: 0) | 200 OK [http://localhost/]
