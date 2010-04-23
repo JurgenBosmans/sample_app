@@ -1679,3 +1679,303 @@ Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/1]
   [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'foo@invalid') LIMIT 1[0m
   [4;35;1mUser Load (0.4ms)[0m   [0mSELECT * FROM "users" [0m
   [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM "users" [0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 12:09:43) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (9.2ms)
+Rendered layouts/_header (1.1ms)
+Rendered layouts/_footer (1.2ms)
+Completed in 105ms (View: 104, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-23 12:09:49) [GET]
+
+ActionController::RoutingError (No route matches "/session" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 12:09:59) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2010-04-23 12:13:55) [GET]
+
+ActionController::RoutingError (No route matches "/session" with {:method=>:get}):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 12:24:38) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"fdgfdgfd"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'fdgfdgfd') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 48ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20100402090951)
+Migrating to AddEmailUniquenessIndex (20100409112357)
+Migrating to AddPasswordToUsers (20100416073340)
+Migrating to AddSaltToUsers (20100416080200)
+Migrating to AddRememberTokenToUsers (20100423104509)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (13.3ms)[0m   [0mALTER TABLE "users" ADD "remember_token" varchar(255)[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20100423104509')[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_list("users")[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mPRAGMA index_info('index_users_on_remember_token')[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mPRAGMA index_info('index_users_on_email')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (7.7ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "email" varchar(255), "created_at" datetime, "updated_at" datetime, "encrypted_password" varchar(255), "salt" varchar(255), "remember_token" varchar(255)) [0m
+  [4;35;1mSQL (10.8ms)[0m   [0mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mCREATE INDEX "index_users_on_remember_token" ON "users" ("remember_token")[0m
+  [4;35;1mSQL (0.2ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM "schema_migrations"[0m
+  [4;36;1mSQL (1.5ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100423104509')[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100402090951')[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100409112357')[0m
+  [4;35;1mSQL (1.4ms)[0m   [0mINSERT INTO "schema_migrations" (version) VALUES ('20100416073340')[0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mINSERT INTO "schema_migrations" (version) VALUES ('20100416080200')[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:05:22) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.5ms)
+
+ActionView::TemplateError (undefined local variable or method `logo' for #<ActionView::Base:0x101772368>) on line #2 of app/views/layouts/_header.html.erb:
+1: <div id="header" class="round"> 
+2: 	<%= link_to logo, root_path %> 
+3: 	<ul class="navigation round">
+4: 		<li><%= link_to "Home", root_path %></li> 
+5: 		<li><%= link_to "Help", help_path %></li> 
+
+    app/views/layouts/_header.html.erb:2
+    app/views/layouts/application.html.erb:9
+
+Rendered rescues/_trace (42.3ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:05:24) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+
+ActionView::TemplateError (undefined local variable or method `logo' for #<ActionView::Base:0x1043041c0>) on line #2 of app/views/layouts/_header.html.erb:
+1: <div id="header" class="round"> 
+2: 	<%= link_to logo, root_path %> 
+3: 	<ul class="navigation round">
+4: 		<li><%= link_to "Home", root_path %></li> 
+5: 		<li><%= link_to "Help", help_path %></li> 
+
+    app/views/layouts/_header.html.erb:2
+    app/views/layouts/application.html.erb:9
+
+Rendered rescues/_trace (99.5ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:05:35) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+
+ActionView::TemplateError (undefined local variable or method `logo' for #<ActionView::Base:0x104448ba8>) on line #2 of app/views/layouts/_header.html.erb:
+1: <div id="header" class="round"> 
+2: 	<%= link_to logo, root_path %> 
+3: 	<ul class="navigation round">
+4: 		<li><%= link_to "Home", root_path %></li> 
+5: 		<li><%= link_to "Help", help_path %></li> 
+
+    app/views/layouts/_header.html.erb:2
+    app/views/layouts/application.html.erb:9
+
+Rendered rescues/_trace (40.0ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:05:38) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+
+ActionView::TemplateError (undefined local variable or method `logo' for #<ActionView::Base:0x1041815a0>) on line #2 of app/views/layouts/_header.html.erb:
+1: <div id="header" class="round"> 
+2: 	<%= link_to logo, root_path %> 
+3: 	<ul class="navigation round">
+4: 		<li><%= link_to "Home", root_path %></li> 
+5: 		<li><%= link_to "Help", help_path %></li> 
+
+    app/views/layouts/_header.html.erb:2
+    app/views/layouts/application.html.erb:9
+
+Rendered rescues/_trace (40.2ms)
+Rendered rescues/_request_and_response (0.2ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:08:16) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:08:22) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:08:27) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>""}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:08:30) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>""}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-23 14:08:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 16ms (View: 11, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:08:34) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:12:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (1.1ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 7, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:13:00) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:13:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.8ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:13:17) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:13:36) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.8ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
