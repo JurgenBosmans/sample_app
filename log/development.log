@@ -2011,3 +2011,939 @@ Rendered layouts/_stylesheets (0.8ms)
 Rendered layouts/_header (1.2ms)
 Rendered layouts/_footer (0.7ms)
 Completed in 45ms (View: 44, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:29:53) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:29:55) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.6ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 30ms (View: 6, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-23 14:29:58) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 17ms (View: 12, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-23 14:30:17) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"users", "user"=>{"name"=>"jurgen Bosmans", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+  [4;36;1mUser Create (0.5ms)[0m   [0;1mINSERT INTO "users" ("name", "encrypted_password", "salt", "created_at", "updated_at", "remember_token", "email") VALUES('jurgen Bosmans', '98248ef58ee35b94196ed94af683c9a58a25a5726af876ae52995bb34752bdb0', '854208d49d17dd150254aba5ed4ef3d7ac44e7ee317318c029dc76a6851c8bcc', '2010-04-23 12:30:17', '2010-04-23 12:30:17', NULL, 'jurgen@2004.be')[0m
+Redirected to http://localhost:3000/users/2
+Completed in 36ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-23 14:30:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 69ms (View: 64, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:30:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:30:23) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+  [4;35;1mUser Update (1.4ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-23 12:30:23', "encrypted_password" = '2e65fe8c843b85450fdd7f80a2337df1530ad4e4ec0180ea0ef8e5a69c337169', "salt" = '59c40639ac4023a23094d9bb0ce81a7ed7a4ee14c3649b81bc7ed5c8433dfe1d', "remember_token" = '9848d8eaef153f46cc02fbe097711fb11262fdbea36a440a021dbaa4f94c9a5f' WHERE "id" = 2[0m
+
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x1044121c0>):
+  app/helpers/sessions_helper.rb:7:in `sign_in'
+  app/controllers/sessions_controller.rb:13:in `create'
+
+Rendered rescues/_trace (27.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:34:22) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '9848d8eaef153f46cc02fbe097711fb11262fdbea36a440a021dbaa4f94c9a5f') LIMIT 1[0m
+Rendered layouts/_header (58.7ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 63ms (View: 61, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-04-23 14:34:29) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x10447c020>):
+  app/helpers/sessions_helper.rb:25:in `sign_out'
+  app/controllers/sessions_controller.rb:20:in `destroy'
+
+Rendered rescues/_trace (27.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-23 14:34:34) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-23 14:34:40) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:34:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:34:45) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 64ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:34:49) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.6ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:34:55) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-23 14:35:00) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-23 14:35:20) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"users", "user"=>{"name"=>"test", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"test@mail.be"}}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@mail.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 16ms (View: 9, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-23 14:35:39) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"users", "user"=>{"name"=>"test", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"test@mail.be"}}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@mail.be') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "encrypted_password", "salt", "created_at", "updated_at", "remember_token", "email") VALUES('test', '910638e406c6e8f914675b6c3bd3d1a5a9a4d571b3ee5e7ed22b53fcce9bcea0', '98db98dfc365fdb331137bfb2c25be02c99509b6694e8727b33a78dce1726a04', '2010-04-23 12:35:40', '2010-04-23 12:35:40', NULL, 'test@mail.be')[0m
+Redirected to http://localhost:3000/users/3
+Completed in 61ms (DB: 1) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-23 14:35:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/3]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-23 14:35:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-23 14:36:00) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"test@mail.be"}, "action"=>"create", "authenticity_token"=>"DEp16JD1lv6w3cYKhIzIlYNp4JKriVMVfYYWr6rdwok=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'test@mail.be') LIMIT 1[0m
+  [4;36;1mUser Update (1.4ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-23 12:36:00', "encrypted_password" = '4105288717906d3e4915a739334dd8c2be3ad70dca057098e973a946bb7a8a9b', "salt" = '5c56fad4708b11773205fc26db9b602bbfca69a53b22c811ca55b8a1aba60f02', "remember_token" = 'c1a84ca9d105b6bac271005b4419c10352960f04d2c6192cda15f9a08eaab117' WHERE "id" = 3[0m
+
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x10436a7e0>):
+  app/helpers/sessions_helper.rb:7:in `sign_in'
+  app/controllers/sessions_controller.rb:14:in `create'
+
+Rendered rescues/_trace (28.1ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-24 08:46:47) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.6ms)
+  [4;35;1mUser Load (0.5ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'c1a84ca9d105b6bac271005b4419c10352960f04d2c6192cda15f9a08eaab117') LIMIT 1[0m
+Rendered layouts/_header (119.3ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 124ms (View: 122, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 19:57:40) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (54.1ms)
+  [4;36;1mUser Load (0.7ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'c1a84ca9d105b6bac271005b4419c10352960f04d2c6192cda15f9a08eaab117') LIMIT 1[0m
+Rendered layouts/_header (41.5ms)
+Rendered layouts/_footer (19.9ms)
+Completed in 220ms (View: 217, DB: 1) | 200 OK [http://localhost/]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 19:57:48) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'c1a84ca9d105b6bac271005b4419c10352960f04d2c6192cda15f9a08eaab117') LIMIT 1[0m
+Rendered layouts/_header (6.7ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-04-26 19:57:58) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x10203cbb0>):
+  app/helpers/sessions_helper.rb:25:in `sign_out'
+  app/controllers/sessions_controller.rb:20:in `destroy'
+
+Rendered rescues/_trace (28.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-26 19:58:04) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (55.1ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 72ms (View: 67, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 19:58:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 27ms (View: 26, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 19:58:09) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;36;1mUser Load (20.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 49ms (View: 6, DB: 20) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 19:58:33) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'c1a84ca9d105b6bac271005b4419c10352960f04d2c6192cda15f9a08eaab117') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 14ms (View: 8, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 19:58:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.6ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'c1a84ca9d105b6bac271005b4419c10352960f04d2c6192cda15f9a08eaab117') LIMIT 1[0m
+Rendered layouts/_header (3.7ms)
+Rendered layouts/_footer (0.4ms)
+Completed in 28ms (View: 22, DB: 0) | 200 OK [http://localhost/users/3]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-04-26 19:58:55) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x1041d2310>):
+  app/helpers/sessions_helper.rb:25:in `sign_out'
+  app/controllers/sessions_controller.rb:20:in `destroy'
+
+Rendered rescues/_trace (77.6ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 19:59:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 3) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/3]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 19:59:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 3, DB: 0) | 200 OK [http://localhost/users/1]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 19:59:10) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 19:59:14) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 2) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/2]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 19:59:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 58ms (View: 57, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 19:59:18) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"jurgen@2004.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'jurgen@2004.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 4, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-26 19:59:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-26 19:59:49) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"users", "user"=>{"name"=>"thomas", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"thomas@telenet.be"}}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'thomas@telenet.be') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "encrypted_password", "salt", "created_at", "updated_at", "remember_token", "email") VALUES('thomas', '922cd07cb192120aa3f833dc66bee6a8c70ba8d7146a80a24847993ee3a3f367', 'cda82d509529c9f5fc906c67c76ebee3e0ebcaba4af754074fc9e37565541d39', '2010-04-26 17:59:49', '2010-04-26 17:59:49', NULL, 'thomas@telenet.be')[0m
+Redirected to http://localhost:3000/users/4
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 19:59:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/4]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 19:59:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:00:15) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"thomas@telenet.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'thomas@telenet.be') LIMIT 1[0m
+  [4;36;1mUser Update (10.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-26 18:00:15', "encrypted_password" = 'c5d6e868e5101879491a8773a59a9c4c5034d616c5d7c811a194b54b254a9b37', "salt" = '1ab9b2b586234725c938d12c5e7849843726564f9c3e397f7a495d1c170e4675', "remember_token" = 'e48ee8f04071f1eda2fccade2f53f94399b20a8cee6c19eb4c42efd8a23be2c0' WHERE "id" = 4[0m
+
+NoMethodError (undefined method `current_user=' for #<SessionsController:0x1041a5108>):
+  app/helpers/sessions_helper.rb:7:in `sign_in'
+  app/controllers/sessions_controller.rb:14:in `create'
+
+Rendered rescues/_trace (27.3ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:12:00) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.8ms)
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'e48ee8f04071f1eda2fccade2f53f94399b20a8cee6c19eb4c42efd8a23be2c0') LIMIT 1[0m
+Rendered layouts/_header (12.2ms)
+Rendered layouts/_footer (0.8ms)
+Completed in 43ms (View: 41, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:12:04) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = 'e48ee8f04071f1eda2fccade2f53f94399b20a8cee6c19eb4c42efd8a23be2c0') LIMIT 1[0m
+Rendered layouts/_header (6.6ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-04-26 20:12:07) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/signout]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:12:07) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:12:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:12:12) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"thomas@telenet.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'thomas@telenet.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.5ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 16ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:12:29) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"thomas@telenet.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'thomas@telenet.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 65ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:12:44) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"thomas@telenet.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'thomas@telenet.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:12:46) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:12:47) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-26 20:12:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 15ms (View: 11, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-26 20:13:11) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"users", "user"=>{"name"=>"test", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"test@pandora.be"}}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'test@pandora.be') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("name", "encrypted_password", "salt", "created_at", "updated_at", "remember_token", "email") VALUES('test', '0187755db3de4a7a74bb68ad531d9c17e7be3ffd2f3d4bb25577736eceb613f5', '74a6f9d3e8b52685c315e773e5fdd2f81e8161cdffd469e10bd13b03e98d6d88', '2010-04-26 18:13:11', '2010-04-26 18:13:11', NULL, 'test@pandora.be')[0m
+Redirected to http://localhost:3000/users/5
+Completed in 10ms (DB: 0) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:13:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 64ms (View: 58, DB: 0) | 200 OK [http://localhost/users/5]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:13:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:13:36) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"test@pandora.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'test@pandora.be') LIMIT 1[0m
+  [4;35;1mUser Update (1.3ms)[0m   [0mUPDATE "users" SET "updated_at" = '2010-04-26 18:13:36', "encrypted_password" = 'bd70171dbae799d78474e01cfb21c72e1266c2ebc879019e1773e83056417da4', "salt" = '104284d711faabbb9f9d36aeed4c60bfc1ced53ac8dd40d2484ea53b0af1cda3', "remember_token" = '2e416351474ca83b0b4f7155848c1939e81cc400a99a0485409850d1db6b30bd' WHERE "id" = 5[0m
+Redirected to http://localhost:3000/users/5
+Completed in 41ms (DB: 2) | 302 Found [http://localhost/sessions]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:13:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '2e416351474ca83b0b4f7155848c1939e81cc400a99a0485409850d1db6b30bd') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/users/5]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:13:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '2e416351474ca83b0b4f7155848c1939e81cc400a99a0485409850d1db6b30bd') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/users/5]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:13:47) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."remember_token" = '2e416351474ca83b0b4f7155848c1939e81cc400a99a0485409850d1db6b30bd') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/users/5]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:13:49) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '2e416351474ca83b0b4f7155848c1939e81cc400a99a0485409850d1db6b30bd') LIMIT 1[0m
+Rendered layouts/_header (6.6ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:13:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = '2e416351474ca83b0b4f7155848c1939e81cc400a99a0485409850d1db6b30bd') LIMIT 1[0m
+Rendered layouts/_header (3.3ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/users/5]
+
+
+Processing PagesController#help (for 127.0.0.1 at 2010-04-26 20:13:52) [GET]
+  Parameters: {"action"=>"help", "controller"=>"pages"}
+
+ActionController::UnknownAction (No action responded to help. Actions: about, contact, current_user, current_user=, home, sign_in, sign_out, signed_in?, and user_from_remember_token):
+  
+
+Rendering rescues/layout (not_found)
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-04-26 20:13:58) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/signout]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:13:59) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:14:02) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 6ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:14:15) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"test@pandora.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'test@pandora.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:14:39) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"test@pandora.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."email" = 'test@pandora.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-26 20:14:41) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-26 20:14:45) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"users", "user"=>{"name"=>"", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>""}}
+  [4;35;1mUser Load (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 22ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-26 20:14:58) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"users", "user"=>{"name"=>"", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>""}}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = '') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 77ms (View: 16, DB: 0) | 200 OK [http://localhost/users]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:15:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:15:18) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:15:21) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:15:34) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"test@pandora.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'test@pandora.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2010-04-26 20:15:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 10ms (View: 6, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2010-04-26 20:16:02) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"users", "user"=>{"name"=>"appel", "password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"appel@telenet.be"}}
+  [4;36;1mUser Load (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."email" = 'appel@telenet.be') LIMIT 1[0m
+  [4;35;1mUser Create (0.3ms)[0m   [0mINSERT INTO "users" ("name", "encrypted_password", "salt", "created_at", "updated_at", "remember_token", "email") VALUES('appel', '6711eac4294774ac2c9a1fa00660edea2247557919158b81f841cc39f6571bfe', '5f6d2846729dee328a4ac3eb899c491d9eff8eb479fb776f364d057003f3a675', '2010-04-26 18:16:02', '2010-04-26 18:16:02', NULL, 'appel@telenet.be')[0m
+Redirected to http://localhost:3000/users/6
+Completed in 9ms (DB: 0) | 302 Found [http://localhost/users]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:16:02) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"users"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 9ms (View: 4, DB: 0) | 200 OK [http://localhost/users/6]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:16:07) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:16:21) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"appel@telenet.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'appel@telenet.be') LIMIT 1[0m
+  [4;36;1mUser Update (1.5ms)[0m   [0;1mUPDATE "users" SET "updated_at" = '2010-04-26 18:16:21', "encrypted_password" = '0e434ad25ed5eef392f7d88847e40e422e6df39a17c39350757acf68abadad99', "salt" = '337e0ff24219093993b0e613137890f1a232a16e5a557e5aa8956009f36214e3', "remember_token" = 'bacf397d27f976dd843971fa39cf3484a4c8ef12f9f7b018548ee4c58f090376' WHERE "id" = 6[0m
+Redirected to http://localhost:3000/users/6
+Completed in 9ms (DB: 2) | 302 Found [http://localhost/sessions]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:16:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'bacf397d27f976dd843971fa39cf3484a4c8ef12f9f7b018548ee4c58f090376') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:16:24) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'bacf397d27f976dd843971fa39cf3484a4c8ef12f9f7b018548ee4c58f090376') LIMIT 1[0m
+Rendered layouts/_header (3.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:16:27) [GET]
+  Parameters: {"action"=>"show", "id"=>"6", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 6) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'bacf397d27f976dd843971fa39cf3484a4c8ef12f9f7b018548ee4c58f090376') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 11ms (View: 6, DB: 0) | 200 OK [http://localhost/users/6]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:16:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 5) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'bacf397d27f976dd843971fa39cf3484a4c8ef12f9f7b018548ee4c58f090376') LIMIT 1[0m
+Rendered layouts/_header (3.0ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/users/5]
+
+
+Processing UsersController#show (for 127.0.0.1 at 2010-04-26 20:16:38) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"users"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 4) [0m
+Rendering template within layouts/application
+Rendering users/show
+Rendered layouts/_stylesheets (0.4ms)
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."remember_token" = 'bacf397d27f976dd843971fa39cf3484a4c8ef12f9f7b018548ee4c58f090376') LIMIT 1[0m
+Rendered layouts/_header (3.1ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 12ms (View: 6, DB: 0) | 200 OK [http://localhost/users/4]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2010-04-26 20:16:42) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/signout]
+
+
+Processing PagesController#home (for 127.0.0.1 at 2010-04-26 20:16:42) [GET]
+  Parameters: {"action"=>"home", "controller"=>"pages"}
+Rendering template within layouts/application
+Rendering pages/home
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.5ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 4ms (View: 3, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2010-04-26 20:16:45) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 5ms (View: 4, DB: 0) | 200 OK [http://localhost/signin]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2010-04-26 20:16:59) [POST]
+  Parameters: {"commit"=>"Sign in", "session"=>{"password"=>"[FILTERED]", "email"=>"appel@telenet.be"}, "action"=>"create", "authenticity_token"=>"AqgiEjeoBnRmQUAweGotTfUK0cGU00RlOg0cbMZDH+s=", "controller"=>"sessions"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."email" = 'appel@telenet.be') LIMIT 1[0m
+Rendering template within layouts/application
+Rendering sessions/new
+Rendered layouts/_stylesheets (0.4ms)
+Rendered layouts/_header (0.4ms)
+Rendered layouts/_footer (0.3ms)
+Completed in 61ms (View: 5, DB: 0) | 200 OK [http://localhost/sessions]
